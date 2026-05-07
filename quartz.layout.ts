@@ -65,6 +65,12 @@ export const defaultContentPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({ sortFn: explorerSortFn }),
+    Component.RecentNotes({
+      title: "Recent updates",
+      limit: 5,
+      showTags: false,
+      filter: (f) => f.slug !== "index",
+    }),
   ],
   right: [
     Component.Graph(),
@@ -89,6 +95,12 @@ export const defaultListPageLayout: PageLayout = {
       ],
     }),
     Component.Explorer({ sortFn: explorerSortFn }),
+    Component.RecentNotes({
+      title: "Recent updates",
+      limit: 5,
+      showTags: false,
+      filter: (f) => f.slug !== "index",
+    }),
   ],
   right: [],
 }
