@@ -1,6 +1,33 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
+// Custom Explorer sort: top-level folders in importance/size order,
+// everything else falls back to alphabetical (Quartz's default).
+const FOLDER_ORDER = ["comparisons", "technologies", "patterns", "antipatterns"]
+
+const explorerSortFn = (a: any, b: any) => {
+  // Folders before files (Quartz default)
+  if (a.isFolder && !b.isFolder) return -1
+  if (!a.isFolder && b.isFolder) return 1
+
+  // Custom folder order at the top level
+  if (a.isFolder && b.isFolder) {
+    const ai = FOLDER_ORDER.indexOf(a.slugSegment)
+    const bi = FOLDER_ORDER.indexOf(b.slugSegment)
+    // Both in the list: order by index. One in the list: that one first.
+    // Neither in the list: fall through to alphabetical.
+    if (ai !== -1 && bi !== -1) return ai - bi
+    if (ai !== -1) return -1
+    if (bi !== -1) return 1
+  }
+
+  // Default: alphabetical, case-insensitive, numeric-aware
+  return a.displayName.localeCompare(b.displayName, undefined, {
+    numeric: true,
+    sensitivity: "base",
+  })
+}
+
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
@@ -8,8 +35,7 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      "View source": "https://github.com/panios/mt-wiki",
     },
   }),
 }
@@ -38,7 +64,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({ sortFn: explorerSortFn }),
   ],
   right: [
     Component.Graph(),
@@ -62,7 +88,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({ sortFn: explorerSortFn }),
   ],
   right: [],
 }
