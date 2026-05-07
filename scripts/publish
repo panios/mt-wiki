@@ -1,0 +1,207 @@
+#!/usr/bin/env python3
+"""
+publish — sync the Obsidian vault into this Quartz repo and push.
+
+Authoritative source: ~/Documents/Obsidian/wiki/ (one-way sync, vault → repo).
+
+Steps:
+  1. Pull latest from GitHub
+  2. Mirror vault wiki/ -> repo content/
+  3. Copy vault index.md -> repo content/index.md
+  4. Rewrite [[../../raw/blogs/X|caption]] wikilinks to [caption](URL)
+     using each raw/blogs/X.md's `source:` frontmatter URL
+  5. Strip wiki/ prefix from index.md wikilinks
+  6. Strip raw/blogs/ entries from `sources:` frontmatter lists
+  7. Auto-generate commit message from changed files, commit, push.
+     GitHub Actions handles the deploy.
+
+Usage: ./scripts/publish [--dry-run]
+"""
+import os
+import re
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+VAULT = Path.home() / "Documents/Obsidian/wiki"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+CONTENT = REPO_ROOT / "content"
+RAW = VAULT / "raw/blogs"
+
+DRY_RUN = "--dry-run" in sys.argv
+
+
+def run(cmd, **kwargs):
+    """Run a shell command, streaming output."""
+    print(f"  $ {' '.join(cmd) if isinstance(cmd, list) else cmd}")
+    if DRY_RUN and cmd[0] in ("git",) and cmd[1:2] in (["push"], ["commit"]):
+        print("    [dry-run] skipped")
+        return ""
+    result = subprocess.run(cmd, capture_output=True, text=True, **kwargs)
+    if result.returncode != 0:
+        print(f"ERROR: {result.stderr}", file=sys.stderr)
+        sys.exit(result.returncode)
+    return result.stdout
+
+
+def load_url_map():
+    """Build basename -> source URL from raw/blogs frontmatter."""
+    mapping = {}
+    for f in RAW.glob("*.md"):
+        text = f.read_text(encoding="utf-8")
+        m = re.search(r'^source:\s*"?([^"\n]+?)"?\s*$', text, re.MULTILINE)
+        if m:
+            mapping[f.stem] = m.group(1).strip()
+    return mapping
+
+
+# Matches [[../../raw/blogs/FILENAME|CAPTION]] and the escaped-pipe form [[../../raw/blogs/FILENAME\|CAPTION]]
+WIKILINK_RE = re.compile(r"\[\[\.\./\.\./raw/blogs/([^\]|\\]+?)(?:\\?\|([^\]]+))?\]\]")
+WIKI_PREFIX_RE = re.compile(r"\[\[wiki/")
+FRONTMATTER_RAW_RE = re.compile(r"^(\s*-\s*)raw/blogs/(.+?)\.md\s*$", re.MULTILINE)
+FRONTMATTER_BLOCK_RE = re.compile(r"^(---\n)(.*?)(\n---\n)", re.DOTALL)
+
+
+def rewrite_content():
+    """Run all the link/frontmatter rewrites across content/."""
+    url_map = load_url_map()
+    print(f"  Loaded {len(url_map)} source URLs from {RAW}")
+
+    rewrites = 0
+    unresolved = set()
+
+    def replace_link(m):
+        nonlocal rewrites
+        filename = m.group(1).strip()
+        caption = (m.group(2) or filename).strip()
+        if filename in url_map:
+            rewrites += 1
+            return f"[{caption}]({url_map[filename]})"
+        unresolved.add(filename)
+        return m.group(0)
+
+    for md in CONTENT.rglob("*.md"):
+        text = md.read_text(encoding="utf-8")
+        new = WIKILINK_RE.sub(replace_link, text)
+        # Strip wiki/ prefix from index.md links (left over from vault structure)
+        if md.name == "index.md":
+            new = WIKI_PREFIX_RE.sub("[[", new)
+        # Strip raw/blogs/ from frontmatter sources:
+        fm_match = FRONTMATTER_BLOCK_RE.match(new)
+        if fm_match:
+            cleaned = FRONTMATTER_RAW_RE.sub(r"\1\2", fm_match.group(2))
+            new = fm_match.group(1) + cleaned + fm_match.group(3) + new[fm_match.end():]
+        if new != text:
+            md.write_text(new, encoding="utf-8")
+
+    print(f"  Rewrote {rewrites} raw/blogs wikilinks")
+    if unresolved:
+        print(f"  WARNING: {len(unresolved)} unresolved (no matching raw/ file):")
+        for u in sorted(unresolved):
+            print(f"    - {u}")
+
+
+def mirror_vault():
+    """Wipe content/, copy fresh from vault, rewrite links."""
+    if DRY_RUN:
+        print("  [dry-run] would mirror vault")
+        return
+    # Delete only markdown files; preserve any non-markdown assets if added later
+    for md in CONTENT.rglob("*.md"):
+        md.unlink()
+    # Copy fresh
+    shutil.copytree(VAULT / "wiki", CONTENT, dirs_exist_ok=True)
+    shutil.copy2(VAULT / "index.md", CONTENT / "index.md")
+    # Remove empty category dirs (Quartz doesn't need them, and they'd otherwise stick around)
+    for d in sorted(CONTENT.rglob("*"), reverse=True):
+        if d.is_dir() and not any(d.iterdir()):
+            d.rmdir()
+    rewrite_content()
+
+
+def changed_files_under(prefix):
+    """Return git status for files under a given prefix."""
+    out = run(["git", "status", "--porcelain", prefix])
+    added, modified, deleted = [], [], []
+    for line in out.splitlines():
+        if not line:
+            continue
+        flag, path = line[:2], line[3:]
+        if flag.strip() in ("A", "??"):
+            added.append(path)
+        elif "D" in flag:
+            deleted.append(path)
+        elif "M" in flag:
+            modified.append(path)
+    return added, modified, deleted
+
+
+def slug(p):
+    return p.removeprefix("content/").removesuffix(".md")
+
+
+def commit_message():
+    added, modified, deleted = changed_files_under("content/")
+    parts = []
+    if added:
+        parts.append("add " + ", ".join(slug(p) for p in added))
+    if modified:
+        parts.append("update " + ", ".join(slug(p) for p in modified))
+    if deleted:
+        parts.append("remove " + ", ".join(slug(p) for p in deleted))
+    if not parts:
+        # Either nothing changed, or only non-content/ files changed (e.g. quartz.config.ts)
+        any_change = run(["git", "status", "--porcelain"]).strip()
+        if not any_change:
+            return None
+        return "wiki: refresh"
+    msg = "wiki: " + "; ".join(parts)
+    if len(msg) > 200:
+        msg = msg[:197] + "..."
+    return msg
+
+
+def main():
+    os.chdir(REPO_ROOT)
+    if not VAULT.exists():
+        sys.exit(f"ERROR: vault not found at {VAULT}")
+    if not (VAULT / "index.md").exists():
+        sys.exit(f"ERROR: {VAULT / 'index.md'} not found")
+
+    if DRY_RUN:
+        print("DRY RUN — no files will be modified, no commits, no push.\n")
+
+    print("==> Pulling latest from GitHub")
+    run(["git", "pull", "--ff-only"])
+
+    print("==> Mirroring vault content into ./content/")
+    mirror_vault()
+
+    print("==> Computing commit message")
+    msg = commit_message()
+    if msg is None:
+        print("==> No changes to publish.")
+        return
+    print(f"  Message: {msg}")
+
+    if DRY_RUN:
+        print("==> [dry-run] stopping before commit/push.")
+        return
+
+    print("==> Committing and pushing")
+    run(["git", "add", "-A"])
+    # Re-check after add: sometimes mirroring produces no net change
+    if not run(["git", "diff", "--cached", "--name-only"]).strip():
+        print("==> No staged changes — nothing to push.")
+        return
+    run(["git", "commit", "-m", msg])
+    run(["git", "push"])
+
+    print("\n==> Done. GitHub Actions will rebuild & deploy in ~2 min.")
+    print("    Latest run: gh run list --repo panios/mt-wiki --limit 1")
+    print("    Site:       https://panios.github.io/mt-wiki/")
+
+
+if __name__ == "__main__":
+    main()
