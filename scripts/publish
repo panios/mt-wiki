@@ -113,7 +113,10 @@ def mirror_vault():
     # Copy fresh
     shutil.copytree(VAULT / "wiki", CONTENT, dirs_exist_ok=True)
     shutil.copy2(VAULT / "index.md", CONTENT / "index.md")
-    # Remove empty category dirs (Quartz doesn't need them, and they'd otherwise stick around)
+    # Drop any .gitkeep files copied along — empty categories shouldn't ship at all
+    for gk in CONTENT.rglob(".gitkeep"):
+        gk.unlink()
+    # Remove empty category dirs (Quartz doesn't need them)
     for d in sorted(CONTENT.rglob("*"), reverse=True):
         if d.is_dir() and not any(d.iterdir()):
             d.rmdir()
