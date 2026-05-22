@@ -1,6 +1,6 @@
 # MT Wiki
 
-Research notes on machine translation engines, on-prem deployment, and enterprise procurement.
+Research notes on machine translation engines, on-prem deployment, and enterprise procurement, using Andrej Karpathy's LLM Wiki framwork. 
 
 Browse the rendered wiki: **https://panios.github.io/mt-wiki/**
 
