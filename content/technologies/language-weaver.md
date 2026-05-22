@@ -2,7 +2,6 @@
 type: technology
 tags:
   - topic/translation
-  - mode/advise
   - mt
   - on-prem
   - tms
@@ -80,7 +79,7 @@ Skillsoft, Uber, NetApp, Morae, Made-in-China.com, eBRAM
 Vertical mix is broader than SYSTRAN's — consumer / hospitality /
 B2B-tech alongside the regulated verticals.
 
-## Where it fits / doesn't (`mode/advise`)
+## Where it fits / doesn't (business advisory)
 
 - **Fits:** High-volume documentary or legal workflows where breadth
   of language coverage matters; organizations already standardised on

@@ -2,7 +2,6 @@
 type: technology
 tags:
   - topic/translation
-  - mode/advise
   - mt
   - on-prem
   - eu-vendor
@@ -88,7 +87,7 @@ administrations, media, travel, publishers, translation agencies
 ([Pangeanic](https://pangeanic.com/machine-translation)).
 Mix skews European / public-sector.
 
-## Where it fits / doesn't (`mode/advise`)
+## Where it fits / doesn't (business advisory)
 
 - **Fits:** EU public-sector clients (especially WEB-T-eligible);
   regulated-sector clients (government, healthcare, law) requiring

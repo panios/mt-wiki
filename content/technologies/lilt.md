@@ -2,7 +2,6 @@
 type: technology
 tags:
   - topic/translation
-  - mode/advise
   - mt
   - on-prem
   - human-in-the-loop
@@ -98,7 +97,7 @@ Reference customers (LILT-disclosed):
   alongside US federal agency, defense and law-enforcement positioning
   ([ChapsVision review](https://www.chapsvision.com/blog/comparing-enterprise-ai-translation-software/)).
 
-## Where it fits / doesn't (`mode/advise`)
+## Where it fits / doesn't (business advisory)
 
 - **Fits:** Content where translation errors carry regulatory, legal
   or safety consequences — pharmaceutical (clinical trial protocols

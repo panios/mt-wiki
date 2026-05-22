@@ -2,7 +2,6 @@
 type: technology
 tags:
   - topic/translation
-  - mode/advise
   - mt
   - on-prem
   - eu-vendor
@@ -70,7 +69,7 @@ For market-context see [[../comparisons/mt-engines]].
   applications
   ([Tilde](https://tilde.ai/translate/tilde-machine-translation/features/)).
 
-## Where it fits / doesn't (`mode/advise`)
+## Where it fits / doesn't (business advisory)
 
 - **Fits:** EU-headquartered clients prioritising EU-vendor and
   EU-data-residency posture (especially public-sector clients

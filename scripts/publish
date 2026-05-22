@@ -60,6 +60,8 @@ def load_url_map():
 WIKILINK_RE = re.compile(r"\[\[\.\./\.\./raw/blogs/([^\]|\\]+?)(?:\\?\|([^\]]+))?\]\]")
 WIKI_PREFIX_RE = re.compile(r"\[\[wiki/")
 FRONTMATTER_RAW_RE = re.compile(r"^(\s*-\s*)raw/blogs/(.+?)\.md\s*$", re.MULTILINE)
+# mode/* tags are private (Build / Advise filtering) — strip on publish.
+FRONTMATTER_MODE_RE = re.compile(r"^\s*-\s*mode/\S+\s*\n", re.MULTILINE)
 FRONTMATTER_BLOCK_RE = re.compile(r"^(---\n)(.*?)(\n---\n)", re.DOTALL)
 
 
@@ -87,10 +89,11 @@ def rewrite_content():
         # Strip wiki/ prefix from index.md links (left over from vault structure)
         if md.name == "index.md":
             new = WIKI_PREFIX_RE.sub("[[", new)
-        # Strip raw/blogs/ from frontmatter sources:
+        # Strip raw/blogs/ from frontmatter sources: and mode/* tags from tags:
         fm_match = FRONTMATTER_BLOCK_RE.match(new)
         if fm_match:
             cleaned = FRONTMATTER_RAW_RE.sub(r"\1\2", fm_match.group(2))
+            cleaned = FRONTMATTER_MODE_RE.sub("", cleaned)
             new = fm_match.group(1) + cleaned + fm_match.group(3) + new[fm_match.end():]
         if new != text:
             md.write_text(new, encoding="utf-8")

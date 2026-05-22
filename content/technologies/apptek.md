@@ -2,7 +2,6 @@
 type: technology
 tags:
   - topic/translation
-  - mode/advise
   - mt
   - speech-translation
   - on-prem
@@ -80,7 +79,7 @@ markets rather than mainstream enterprise content.
   memory data
   ([AppTek](https://www.apptek.ai/technology/machine-translation)).
 
-## Where it fits / doesn't (`mode/advise`)
+## Where it fits / doesn't (business advisory)
 
 - **Fits:** Media & entertainment localization (subtitles, captions,
   voiceover); government/intelligence content with low-resource

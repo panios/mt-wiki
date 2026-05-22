@@ -2,7 +2,6 @@
 type: technology
 tags:
   - topic/translation
-  - mode/advise
   - mt
   - on-prem
   - hybrid-mt
@@ -91,7 +90,7 @@ Integration:
   ([Mordor MT](https://www.mordorintelligence.com/industry-reports/machine-translation-market)),
   corroborating the on-prem positioning at market level.
 
-## Where it fits / doesn't (`mode/advise`)
+## Where it fits / doesn't (business advisory)
 
 - **Fits:** Sovereignty-constrained clients with sustained translation
   volume where unlimited-volume subscription pricing beats per-word

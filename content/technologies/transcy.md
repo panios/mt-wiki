@@ -2,7 +2,6 @@
 type: technology
 tags:
   - topic/translation
-  - mode/advise
   - mt
   - meta-platform
   - shopify
@@ -46,7 +45,7 @@ Two billing / integration patterns
 | Tone control | Yes (where the engine supports it) | No |
 | Onboarding | Merchant must hold an account with the engine vendor | Zero engine-side onboarding |
 
-## Procurement notes (`mode/advise`)
+## Procurement notes (business advisory)
 
 Where Transcy fits, and where it doesn't:
 

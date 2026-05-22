@@ -2,7 +2,6 @@
 type: comparison
 tags:
   - topic/translation
-  - mode/advise
   - mt
   - market-sizing
 sources:
@@ -10,12 +9,15 @@ sources:
   - Translation Service Market Size, Drivers & Opportunities
   - Announcing The Forrester Wave™_ Translation Management Systems, Q3 2025, Our Inaugural Evaluation Of The Market
   - Machine Translation Market Outlook, Size, Share, Trends, Growth Drivers, Key Players, and Regional Insights
-last_updated: 2026-05-01
+  - The 2026 Nimdzi 100
+  - 2025 Language Technology Radar Report
+  - Intento Releases 9th Annual “State of Translation Automation 2025” Industry Report
+last_updated: 2026-05-23
 ---
 
 # Translation market sizing
 
-Reference page for `mode/advise` deliverables that need market-size,
+Reference page for business-advisory deliverables that need market-size,
 growth-rate, segment-mix, or regional-share figures. Three distinct
 markets get conflated routinely; pin the scope before quoting numbers.
 
@@ -218,6 +220,98 @@ Forrester noted TransPerfect's acquisition of Unbabel just before
 publication of the Wave; both vendors were evaluated separately
 ([Forrester](https://www.forrester.com/blogs/announcing-the-first-forrester-wave-translation-management-systems-q3-2025/)).
 
+## Nimdzi 100 — broader language industry sizing
+
+Nimdzi's 2026 industry report
+([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)) sizes the
+**entire language industry** (translation services + interpretation +
+language-tech platforms + data services) at a wider scope than the
+Mordor reports above. Useful as a cross-check on services-market
+figures and as the reference for narrative-level Advise-mode claims.
+
+| Metric | 2025 | 2026F | 2030F |
+|---|---|---|---|
+| Industry size (realistic) | USD 72.6B | USD 73.4B | USD 76.1B |
+| Industry size (optimistic) | — | — | USD 96.9B (alt scenario) / USD 86.2B (alt) |
+| CAGR (2025→2030, realistic) | — | — | < 1.0% |
+| Top-100 share of industry | 19.8% | — | — |
+| Top-10 share of industry | 9.9% | — | — |
+
+Sources
+([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)).
+
+The Nimdzi figure (USD 72.6B in 2025) is **higher than Mordor's
+translation-services figure** (USD 64.99B in 2026) — the gap is the
+scope difference (Nimdzi includes interpreting, language-tech
+licensing, data services; Mordor's services figure is more narrowly
+translation-and-related services). Don't average across the two
+numbers — pin scope first, then pick the right reference.
+
+### Nimdzi observations affecting market trajectory
+
+- **Linear, not exponential.** Nimdzi's 2026 outlook revised
+  *downward* yet again — projected CAGR through 2030 is now < 1.0%.
+  This conflicts with Mordor's 8.44% services CAGR and the 11.69% MT
+  CAGR. The reconciliation: Mordor sizes the *software-driven*
+  segments (which are growing), Nimdzi sizes the *whole industry
+  including the contracting human-service segments*. Both can be
+  right.
+- **Industry remains highly fragmented** — top 100 = 19.8% of total,
+  same fragmentation pattern Mordor noted (top 100 in services = 15%
+  per Mordor). Industry consolidation is happening at the top but
+  the long tail remains intact
+  ([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)).
+- **Polarization by segment** — top 10 grew 3.6%, top 20 grew 3.4%,
+  51–100 segment *declined 4.3%* (first negative segment growth since
+  2021). Mid-market vendors heavily reliant on public-sector RFPs are
+  exposed to budget freezes
+  ([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)).
+- **Regional revenue concentration**: Top 100 by HQ — Europe 42,
+  North America 34, Asia 17, Oceania 7. Top 100 by demand —
+  USD 30.6B North America, USD 25.5B Europe, USD 12.6B Asia
+  ([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)).
+- **Pricing shift away from per-word.** SaaS licensing, platform
+  access fees, and hourly productivity models are replacing
+  price-per-word as the dominant commercial model. Procurement teams
+  anchoring on PPW will misread the actual cost of 2026 platforms
+  ([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)).
+- **Buyer's market for M&A.** 60% of Nimdzi 100 respondents are
+  actively looking to buy. M&A multipliers have compressed; KKR
+  acquired Lionbridge from H.I.G. on a free-cash-flow thesis
+  rather than growth multiples
+  ([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)).
+- **AI-only is failing**: clients who tried to use raw AI output
+  for "not-for-MT" content saw quality failures and are returning to
+  LSPs for expert-in-the-loop validation — the "IKEA-ization"
+  pendulum is partially correcting
+  ([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)).
+- **High-growth verticals are still the regulated ones**: life
+  sciences (78.4% of providers offer it), financial/legal (73.0%),
+  government (70.3%) — flight to safety into expert-in-the-loop
+  domains. Consistent with Mordor's BFSI / pharma growth pattern.
+
+The narrative claims (downsizing of in-house linguists by 20–25%,
+"agentic AI" surge, sovereign-AI initiatives) are useful framing for
+Advise-mode deliverables but are not load-bearing for sizing.
+
+## Other 2025–2026 industry references
+
+- **Intento State of Translation Automation 2025** — Intento's 9th
+  annual industry report, published October 30, 2025, renamed from
+  *State of Machine Translation*
+  ([Slator](https://slator.com/intento-releases-9th-annual-state-of-translation-automation-2025-industry-report/)).
+  Only the press release fragment is captured in our raw/ — the full
+  report content is not yet available; this entry is a pointer for
+  later ingest when the report or coverage of it is captured.
+- **Nimdzi Language Technology Radar 2025** — tracks 660+ langtech
+  vendors across 900+ products; categories include TMS, marketplaces,
+  MT, integrators, interpreting, ASR, audiovisual, QA, multilingual
+  creation, LLMs
+  ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)).
+  Geographic distribution: US 34.36% of providers, Germany 6.75%,
+  UK 6.44%, France 3.37%
+  ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)).
+
 ## Source-quality notes
 
 The MarketsandMarkets MT report
@@ -253,3 +347,6 @@ recommendations.
 - [Translation Service Market Size, Drivers & Opportunities](https://www.mordorintelligence.com/industry-reports/translation-services-market) — Mordor Intelligence translation services market report, 2025-2031 framing, captured 2026-05-01.
 - [Announcing The Forrester Wave™_ Translation Management Systems, Q3 2025, Our Inaugural Evaluation Of The Market](https://www.forrester.com/blogs/announcing-the-first-forrester-wave-translation-management-systems-q3-2025/) — Forrester teaser blog for paywalled Wave; vendor list and market framing only.
 - [Machine Translation Market Outlook, Size, Share, Trends, Growth Drivers, Key Players, and Regional Insights](https://www.marketsandmarkets.com/Market-Reports/machine-translation-market-52498643.html) — MarketsandMarkets MT report; cited only as a source-quality cautionary note, not for factual claims (contains Google-acquired-DeepL falsehood).
+- [The 2026 Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026) — Nimdzi's 2026 industry ranking + sizing; whole-industry framing (USD 72.6B 2025), segment polarization, M&A activity, pricing-model shift, IKEA-ization framing.
+- [2025 Language Technology Radar Report](https://www.nimdzi.com/language-technology-radar-report) — Nimdzi Language Technology Radar; 660+ vendors / 900+ products tracked across 10 categories; geographic distribution; LLM/agentic-AI framing.
+- [Intento Releases 9th Annual “State of Translation Automation 2025” Industry Report](https://slator.com/intento-releases-9th-annual-state-of-translation-automation-2025-industry-report/) — Slator coverage of Intento's industry report; only press-release fragment captured, full data not yet available.

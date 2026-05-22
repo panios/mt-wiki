@@ -2,7 +2,6 @@
 type: comparison
 tags:
   - topic/translation
-  - mode/advise
   - vendor-evaluation
   - tms
   - localization
@@ -12,7 +11,11 @@ sources:
   - 24 Top Translation Software (2025)
   - Comparing Enterprise AI Translation Software in 2026_ Security, Deployment and Professional Accuracy, Comparing Enterprise AI Translation Software in 2026
   - Enterprise AI Translation Platform
-last_updated: 2026-05-07
+  - The 2026 Nimdzi 100
+  - 2025 Language Technology Radar Report
+  - MT Platform
+  - Language Portal - Automated Solution for Your Clients
+last_updated: 2026-05-23
 ---
 
 # Translation platforms (TMS / CAT / AI translation services)
@@ -165,7 +168,7 @@ viable alternatives to SDL Trados ($2,933) for individual translators
 
 ## Deployment / data-residency annotations
 
-This is the dimension that matters most for `mode/advise` clients
+This is the dimension that matters most for business-advisory clients
 with sovereignty constraints. **None of the three sources specify
 deployment posture per platform** — these annotations are inferred
 from each vendor's public posture and need verification per
@@ -192,6 +195,135 @@ local-only) and **TMSes with on-prem options** (RWS,
 TransPerfect/GlobalLink). Most modern SaaS-only TMSes (Phrase,
 Smartling, Lokalise, Lilt) are out of scope unless the client accepts
 their regional cloud arrangements.
+
+## Nimdzi 100 — 2026 industry cohort
+
+The 2026 Nimdzi 100 ranking is the load-bearing reference for
+"who's actually in the market"
+([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)). Two structural
+findings worth lifting into platform shortlist work:
+
+**1. TMS / SaaS vendors now qualify for the Nimdzi 100 ranking.**
+Nimdzi explicitly updated its 2026 qualifiers — companies like DeepL,
+Phrase, Smartling, and XTM International are now ranked alongside
+traditional LSPs because the line between "service provider" and
+"platform provider" has eroded
+([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)). The 2026
+debutants include:
+
+- **Smartling** — added with 93.4% YoY growth (the #2 fastest-growing
+  Nimdzi 100 company), driven by its proprietary AI translation
+  platform.
+- **XTM International** — debuted with 60.0% growth after acquiring
+  Transifex, TXTOmedia, and Consoltec in 2025; clearly positioning
+  as a multi-tech consolidator.
+- **TechTrans International** and **Language Services Associates** —
+  first-time disclosures after previously declining to report revenue.
+- **DeepL** — first added 2025; remains in 2026.
+- **Phrase** — also added 2026.
+- **Effectiff** — fastest-growing Nimdzi 100 company at 94.4% growth
+  (no previous TMS exposure; mid-market entrant).
+- **Side** (formerly PTW) — first woman-led company in the top 10.
+
+**2. M&A activity has reshaped the Forrester Wave cohort within months
+of its publication.**
+
+- **TransPerfect acquired Unbabel** (was Wave #65) — already noted
+  on this page; Nimdzi 100 confirms acquisition is complete and
+  Unbabel is no longer ranked separately.
+- **TransPerfect also acquired Apostroph Group** (was #83) —
+  consolidating LSP capacity.
+- **Propio Language Services acquired CyraCom** (was Nimdzi 2025 #19)
+  — Propio surged to Nimdzi 2026 #3 with 70.6% growth.
+- **Lionbridge ownership transferred from H.I.G. Capital to KKR** —
+  Nimdzi reads this as investor preference shifting from
+  growth-at-multiples to predictable EBITDA / free cash flow.
+- **Datamundi (was Summa Linguae)** rebranded; **TransNarrative** is a
+  new BlueLion + GATS merger.
+
+The procurement-relevant implication: a Wave / Gartner shortlist
+captured even six months ago may already misrepresent the market.
+Re-validate ownership and platform status at procurement-shortlist
+time.
+
+**3. Industry framing matters for "advise mode" deliverables.**
+Nimdzi 100 surfaces a sector-wide narrative shift that's worth
+quoting in client-facing reports
+([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)):
+
+- The traditional **price-per-word** metric is being abandoned in
+  favor of SaaS licensing, platform access fees, and hourly
+  productivity models. Procurement teams that anchor on PPW will
+  miss the actual cost shape of 2026 platforms.
+- **IKEA-ization of localization** — buyers favour AI speed to
+  reduce dependency and slash budgets; providers are repositioning
+  as consultants defending human-oversight necessity against AI
+  hallucination liability. Worth flagging when evaluating any
+  "AI-first" platform claim.
+- The 51–100 ranking tier saw a 4.3% revenue decline in 2025 — the
+  first negative segment growth Nimdzi has reported since 2021.
+  Mid-market LSPs heavily dependent on public-sector RFPs are
+  exposed; this affects procurement risk on smaller vendors.
+
+## LSP-built proprietary AI platforms
+
+A category that the Forrester Wave and Gartner lists *don't*
+separate cleanly: the proprietary AI platforms that the largest LSPs
+have built around their service operations. Per the Nimdzi 2025
+Radar Report
+([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)),
+these are *strategic differentiators* — not generic TMSes — and
+they bundle MT, QE, workflow orchestration, and integrations into a
+single platform that locks the client into the LSP's stack.
+
+| LSP | Platform | Positioning |
+|---|---|---|
+| Acolad | **Lia** | Integrated suite: Lia Translate (MT), Lia Studio (multimedia), Lia Insights (reporting), Lia Live (interpreting), Lia Agents (workflow / agent builder), Lia Connect (API & connector marketplace), Lia Marketing (AI content creation). Tagline "AI-Power. Human Impact." ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)) |
+| Welocalize | **Opal** | Data-driven AI platform; integrates MT, QE, and linguistic assets; positioned as a **business-intelligence layer** above localization operations ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)) |
+| Lionbridge | **Aurora AI** | Centralized orchestration system; connects client content systems to Lionbridge's linguistic and AI engines; smart content enrichment ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)) |
+| Argos Multilingual | **MosAIQ** | Workflow automation + MT customisation + QE; content-intelligence framing with real-time ROI/productivity insights ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)) |
+| RWS | **Evolve** | Bundles Trados Enterprise (TMS) + Language Weaver (NMT) + MTQE + private LLM + linguist services ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)) |
+| TransPerfect | **GlobalLink** + Unbabel's TowerLLM | Post-Unbabel acquisition, TowerLLM may surface as named engine inside GlobalLink ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)); already noted on Forrester Wave row above |
+| Translated | **TranslationOS** + Lara | TranslationOS for workflow / asset sync; Lara for purpose-built MT (see [[mt-engines]]) |
+
+These platforms are heterogeneous — Acolad Lia is closer to a TMS
+replacement, Welocalize Opal is a BI layer, MosAIQ is a workflow tool.
+They share two features that matter for procurement:
+
+- **Lock-in framing**: each is explicitly designed to embed the LSP
+  deeper into the client's tech stack
+  ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)).
+  This is the procurement risk Forrester flagged on the Wave cohort
+  amplified — the LSP isn't just the translator, they're the
+  platform.
+- **Mixed open / proprietary technology**: most rely on third-party
+  TMSes for parts of the workflow even where they have a proprietary
+  platform ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)).
+  None is fully self-sufficient.
+
+For clients evaluating an LSP relationship, the question becomes
+whether to procure **services + platform together** (locked in to
+LSP's stack) or **services separately from a vendor-neutral TMS**
+(Forrester's framing) — the latter preserves switching optionality
+but loses the integrated workflow advantages.
+
+## Meta-platform / aggregator layer
+
+A vendor category that sits between MT engines and TMSes: meta-
+platforms that orchestrate access to multiple MT engines and LLMs
+through a single connector layer.
+
+| Vendor | Positioning | Pricing | Deployment |
+|---|---|---|---|
+| Custom.MT | **AI model manager** with 15+ brand integrations, Best-Engine selector by edit distance, prompt studio, TMX cleaner, Trados/MemoQ/Smartling/XTM/Smartcat/Shopware connectors ([Custom.MT MT Platform](https://custom.mt/custom-machine-translation-platform/)) | Starter €200/mo, Advanced €1000/mo, Compliance €2500/mo (engine API + GenAI tokens billed separately) ([Custom.MT MT Platform](https://custom.mt/custom-machine-translation-platform/)) | SaaS default; Compliance Edition surfaces optional **on-prem (NMT/LLM)** + tokenization + VPC options ([Custom.MT MT Platform](https://custom.mt/custom-machine-translation-platform/)); LSP-facing Translation Portal with HITL + GenAI editing + drag-and-drop OCR ([Custom.MT Language Portal](https://custom.mt/language-portal/)) |
+| Intento | MT / LLM aggregator with workflow automation; agentic features (Post-Editor / Style Guide / Terminology / Translation / Source Quality / Compliance / Tone of Voice agents per Radar) ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)) | Not in our sources | SaaS |
+| ModelFront | Quality estimation only — "no engineering, no workflow change, no external models, only private custom LLMs" (already in Gartner cohort above) | Not in our sources | SaaS with "private custom LLMs" claim |
+
+Meta-platforms are particularly attractive for clients who want to
+benchmark across engines before committing or who need to swap
+engines per language pair / domain — the lock-in risk shifts from
+"the engine vendor" to "the meta-platform". Custom.MT's pricing is
+also one of the few transparent disclosures in this layer.
 
 ## Certifications cohort spotlight (from ChapsVision 2026 review)
 
@@ -247,3 +379,7 @@ overlapping with the Forrester Wave / Gartner cohorts above.
 - [24 Top Translation Software (2025)](https://redokun.com/blog/translation-software) — Redokun blog; pricing-transparent CAT/TMS catalog, vendor-published (Redokun is listed first).
 - [Comparing Enterprise AI Translation Software in 2026_ Security, Deployment and Professional Accuracy, Comparing Enterprise AI Translation Software in 2026](https://www.chapsvision.com/blog/comparing-enterprise-ai-translation-software/) — ChapsVision review; certification cohort comparison across the 7 most-evaluated enterprise MT vendors.
 - [Enterprise AI Translation Platform](https://lilt.com/) — LILT homepage; agentic-AI platform positioning, 100+ connector ecosystem, BYO-model option.
+- [The 2026 Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026) — Nimdzi's 2026 ranking of the 100 largest language industry providers; M&A activity, debutants (Smartling/DeepL/Phrase/XTM/TechTrans), price-per-word → SaaS pricing transition, mid-tier decline, IKEA-ization framing.
+- [2025 Language Technology Radar Report](https://www.nimdzi.com/language-technology-radar-report) — Nimdzi Language Technology Radar 2025; LSP-built proprietary AI platforms (Lia, Opal, Aurora AI, MosAIQ, Evolve, TranslationOS); agentic AI in TMSes (XTM xaia, Intento); TMS-vs-multilingual-content-platform framing.
+- [MT Platform](https://custom.mt/custom-machine-translation-platform/) — Custom.MT MT Platform page; meta-platform pricing, 30+ NMT/LLM models, connector list, on-prem option in Compliance tier.
+- [Language Portal - Automated Solution for Your Clients](https://custom.mt/language-portal/) — Custom.MT Language Portal product; LSP-facing white-label HITL translation portal with GenAI post-editing.

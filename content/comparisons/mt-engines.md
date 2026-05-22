@@ -2,7 +2,6 @@
 type: comparison
 tags:
   - topic/translation
-  - mode/advise
   - mt
   - vendor-evaluation
 sources:
@@ -12,6 +11,18 @@ sources:
   - (11) Why You Should Choose an On-prem Translation System for Corporate Translation
   - Comparing Enterprise AI Translation Software in 2026_ Security, Deployment and Professional Accuracy, Comparing Enterprise AI Translation Software in 2026
   - Automated translation
+  - ModernMT _ Welcome
+  - ModernMT _ Translators
+  - Translated merges with ModernMT
+  - Machine Translation in 2026_ An Honest Assessment of What's Good, What's Bad, and What's Next
+  - MT Platform
+  - On-Premise Machine Translation - Secure Solutions
+  - Language Portal - Automated Solution for Your Clients
+  - 2025 Language Technology Radar Report
+  - 2022.amta-upg.4.Presentation
+  - 2023.wmt-1.1
+  - 2024.wmt-1.1
+  - 2025.wmt-1.22
   - SYSTRAN Server On Premise
   - SYSTRAN translate Server
   - Language Weaver, Translation Technology
@@ -21,7 +32,7 @@ sources:
   - Language Studio Enterprise Translation Server
   - Enterprise AI Translation Platform
   - On-premise Machine Translation
-last_updated: 2026-05-07
+last_updated: 2026-05-23
 ---
 
 # Machine translation engines
@@ -88,11 +99,13 @@ verify per-client before recommending.
 | Omniscien Language Studio ([[../technologies/omniscien]]) | Omniscien Technologies | SaaS (Secure Cloud), on-prem (LSETS), on-prem (Data Center Platform — billion-words/day scale) ([Omniscien](https://omniscien.com/products/language-studio/language-studio-features/)) | Self-host viable; GDPR-by-design via on-prem | **Hybrid Deep NMT/SMT** approach (rare in 2026); off-the-shelf Industry MT engines (legal, medical, etc.); on-prem editions priced as unlimited-volume subscription ([Omniscien LSETS](https://omniscien.com/products/language-studio/enterprise-translation-server/)) |
 | Tilde MT ([[../technologies/tilde-mt]]) | Tilde (LV) | SaaS by default; on-prem and private-cloud available; 30+ years of Tilde MT R&D ([Tilde](https://tilde.ai/translate/tilde-machine-translation/features/)) | EU-based; "no storage / no analysis" data-handling on cloud SaaS | 40+ engines + LLMs; Trados / MemoQ plugins; integrated with EC WEB-T (Drupal/Joomla/WordPress/WooCommerce plugins) ([Tilde](https://tilde.ai/translate/tilde-machine-translation/features/), [EC WEB-T](https://website-translation.language-tools.ec.europa.eu/automated-translation_en)) |
 | Pangeanic ([[../technologies/pangeanic]]) | Pangeanic (ES) | Managed Private Cloud (ECO); On-prem incl. air-gapped; task-specific Small Language Models for local infra ([Pangeanic](https://pangeanic.com/machine-translation)) | EU-based; private-SaaS option | 200+ languages; **Deep Adaptive AI Translation (DAAIT)** real-time post-edit learning; PII anonymisation as pre-translation step; Gartner Hype Cycle mentions 2023+2024 ([Pangeanic](https://pangeanic.com/machine-translation)); EC WEB-T integrated ([EC WEB-T](https://website-translation.language-tools.ec.europa.eu/automated-translation_en)) |
-| ModernMT | Translated (IT) | SaaS API (subscription) | EU-based vendor | First real-time **adaptive** MT product; Transformer architecture; learns from each user interaction; 200+ languages; integrated with EC WEB-T ([EC WEB-T](https://website-translation.language-tools.ec.europa.eu/automated-translation_en)) |
+| ModernMT ([[../technologies/modernmt]]) | Translated (IT, acquired 2022) | **SaaS only — no on-prem** ([ModernMT](https://www.modernmt.com/)) | EU-based vendor; ISO 27001:2013 | Document-level translation + real-time adaptive learning from corrections; 200 languages (up from 56 at 2022 merger) ([ModernMT](https://www.modernmt.com/), [Translated press release](https://translated.com/modernmt-adaptive-machine-translation)); IDC MarketScape Leader 2023 ([ModernMT](https://www.modernmt.com/)); integrated with EC WEB-T ([EC WEB-T](https://website-translation.language-tools.ec.europa.eu/automated-translation_en)) |
+| Lara | Translated (IT) | SaaS only (Translated cloud) | EU-based vendor | Translated's "next-generation translation AI", positioned alongside ModernMT in 2026 Translated materials ([Translated 2026 assessment](https://translated.com/resources/machine-translation-2026-assessment)); whether it supersedes ModernMT inside Translated's portfolio is unclear from public sources |
+| Custom.MT | Custom.MT (EU) | **Meta-platform**: SaaS Starter (€200/mo) / Advanced (€1000/mo) / Compliance (€2500/mo); Compliance Edition surfaces optional On-Prem + NMT/LLM deployment ([Custom.MT MT Platform](https://custom.mt/custom-machine-translation-platform/)) | Cloud default; on-prem optional in Compliance tier ([Custom.MT on-prem](https://custom.mt/on-premise-machine-translation-2/)) | **Aggregator / orchestration layer, not a primary engine** — manages 30+ NMT/LLM models centrally with Trados/MemoQ/Smartling/XTM/Smartcat/Shopware connectors, Best-Engine tool (auto model selection by edit distance), TMX cleaner, prompt studio; for translation portals to LSP clients see [Custom.MT Language Portal](https://custom.mt/language-portal/) |
 | eTranslation | EU Commission DG-T | SaaS (free for eligible orgs) | EU-only | EC's own NMT service; exclusive to EU institutions, public administrations, SMEs, universities, NGOs and Digital Europe Programme projects; covers 30+ languages incl. all EU official languages; 20MB request limit ([EC WEB-T](https://website-translation.language-tools.ec.europa.eu/automated-translation_en)) |
 
 The "Deployment" and "Data residency" columns are the procurement-
-relevant ones for `mode/advise`. The "Best for" column is what the
+relevant ones for business-advisory engagements. The "Best for" column is what the
 *source* offers; do not propagate it without confirmation.
 
 ## Underlying technology stack
@@ -133,7 +146,8 @@ in 2026 and getting fuzzier.
 | Tilde MT ([[../technologies/tilde-mt]]) | NMT + LLMs as a 40+ engine portfolio; LLM-augmented features like summarisation and register selection ([Tilde](https://tilde.ai/translate/tilde-machine-translation/features/)) | ? | None disclosed; uses LLMs but doesn't name them | Proprietary | NMT-and-LLMs side-by-side, not a single architecture |
 | **Omniscien Language Studio** ([[../technologies/omniscien]]) | **Hybrid Deep NMT/SMT** — explicitly retains SMT alongside NMT ([Omniscien LSETS](https://omniscien.com/products/language-studio/enterprise-translation-server/)) | — (off-the-shelf industry domain models; custom training available) | None disclosed | Proprietary | **Contrarian holdout: only cohort vendor still running SMT in production in 2026** |
 | **Pangeanic** ([[../technologies/pangeanic]]) | NMT + **task-specific Small Language Models (SLMs)** designed for local infrastructure ([Pangeanic](https://pangeanic.com/machine-translation)) | ✓ DAAIT — real-time learning from human-corrected style; on-the-fly or after-review training cycles | None disclosed (in-house SLMs) | Proprietary | **Sovereign-deploy LLM answer: SLM as the on-prem-friendly LLM-shape** |
-| ModernMT | Transformer architecture; learns from each user interaction in real-time ([EC WEB-T](https://website-translation.language-tools.ec.europa.eu/automated-translation_en)) | ✓ Real-time adaptive | None disclosed | Proprietary | First commercial real-time adaptive MT |
+| ModernMT ([[../technologies/modernmt]]) | Transformer + patent-awarded human-in-the-loop training ([ModernMT](https://www.modernmt.com/)) | ✓ Real-time adaptive (HITL tier) | None disclosed | Proprietary | First commercial real-time adaptive MT |
+| Lara | LLM-based (Translated's purpose-built translation model) ([Translated](https://translated.com/resources/machine-translation-2026-assessment)) | ? | None disclosed (in-house) | Proprietary | Translated's purpose-built LLM-for-translation |
 | eTranslation | NMT (architecture not detailed) | — | None disclosed | Proprietary (EU Commission) | EU-public-sector option |
 | Lingvanex | NMT (architecture not detailed) | ? customisation available | None disclosed | Proprietary | On-prem-first vendor |
 | IBM Watson Language Translator | NMT | ? | None disclosed | Proprietary | Hyperscaler-adjacent |
@@ -146,8 +160,16 @@ This is the most informative axis to read out of the table.
 
 - **Foundation-model-based MT** — Google Cloud (Translation LLM,
   Gemini-powered), RWS Language Weaver Pro (Cohere, 100B+ params),
-  LILT (BYO Gemini/GPT/Claude). 2025–2026 moves; not present in
-  earlier captures. This is the leading edge.
+  LILT (BYO Gemini/GPT/Claude), Translated's Lara (purpose-built
+  translation LLM)
+  ([Translated](https://translated.com/resources/machine-translation-2026-assessment)).
+  Translated's positioning of Lara as a *purpose-built* translation
+  LLM (vs. general-purpose models used as MT) maps the same
+  distinction Nimdzi's 2025 Radar makes between LSP-built proprietary
+  platforms and foundation-model wrapping
+  ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)).
+  2025–2026 moves; not present in earlier captures. This is the
+  leading edge.
 - **General-purpose LLMs used *as* MT** — OpenAI, Gemini direct,
   Grok, DeepSeek. Translation is an emergent capability rather than
   a dedicated product. Quality is competitive on major language
@@ -171,8 +193,20 @@ This is the most informative axis to read out of the table.
   niches (specific legal-codex translators, internal enterprise
   systems) but no general-purpose vendor in our captures still ships
   it as a primary product.
+- **Agentic MT (2026 trend)** — Nimdzi's 2025 Radar surfaces
+  *agentic* MT systems as the next architectural shift: a pipeline of
+  specialised agents (translation, terminology, brand/legal, quality
+  estimation, automated post-editing) chained around an NMT or LLM
+  core, with guardrails between steps
+  ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)).
+  Intento and XTM (xaia Copilot) are named implementations as of
+  September 2025. The architectural distinction matters: agentic MT
+  is workflow-shaped (orchestration around a model) rather than
+  model-shaped (a different translation engine). It does not replace
+  the engines above — it consumes them. Reads as a 2026 *integration*
+  trend, not a 2026 *engine* trend.
 
-### What this means for the wiki's `mode/build` recommendations
+### What this means for the wiki's IT-consultation recommendations
 
 Solo operators picking an on-prem engine in 2026 have a more useful
 choice than "OSS NMT vs. Lingvanex":
@@ -188,6 +222,68 @@ choice than "OSS NMT vs. Lingvanex":
 - **Hybrid NMT/SMT (Omniscien)** — only relevant if the legacy SMT
   component genuinely helps domain control; otherwise plain NMT is
   simpler.
+
+## Benchmark leaders (WMT 2023–2025 + Intento AMTA 2022)
+
+Who actually wins on independent benchmarks. The two-tradition split
+(academic WMT vs. commercial Intento+e2f) gives a more honest
+picture than vendor self-marketing.
+
+**WMT25 leaders — human evaluation, 16 language pairs**
+([WMT25](https://aclanthology.org/2025.wmt-1.22/)):
+
+- **Gemini 2.5 Pro** — top cluster in 14 of 16 pairs. Best overall.
+- **Shy-hunyuan-MT** — top cluster in 11 pairs (constrained category);
+  topped automatic ranking on 15 of 16 pairs but lost human eval.
+- **Algharb** — top cluster in 6 pairs.
+- **Claude 4** — Hindi legal performance leader alongside Gemini.
+- **GPT-4.1** — top of human eval for English→Arabic (Egyptian).
+- **Human references** in top cluster on only 6 of 15 pairs — MT
+  beats human on more pairs each year (was 7 of 11 in WMT24).
+
+**WMT24 leaders — human evaluation, 11 language pairs**
+([WMT24](https://aclanthology.org/2024.wmt-1.1/)):
+
+- **Claude 3.5 Sonnet** — best overall, won 9 language pairs.
+- **IOL-Research** — best open + constrained system, won 10 pairs.
+- **Unbabel-Tower70B** — best participating system, won 8 pairs;
+  topped automatic ranking but didn't win human eval across the
+  board (metric-bias from COMET-as-reward).
+
+**WMT23 leaders — DA+SQM, 14 directions**
+([WMT23](https://aclanthology.org/2023.wmt-1.1/)):
+
+- **GPT-4** — only 2 LLM submissions evaluated; strong on UGC
+  translation but weak on speaker-gender translation and legal
+  domain; ranked *below* encoder-decoder systems for English into
+  Czech and Russian.
+
+**Intento+e2f AMTA 2022 (commercial benchmark, 11 pairs × 9
+industries)** — pre-LLM-era leadership snapshot
+([Intento+e2f AMTA 2022](https://aclanthology.org/2022.amta-upg.4/)):
+
+- 31 commercial engines evaluated; 16 made the statistically
+  significant leader set across some industry × language pair
+  combination.
+- "Many engines perform best with English→Spanish and
+  English→Chinese" — the easy directions.
+- **Legal, Financial, IT, Healthcare** — few engines reach top
+  cluster; vendor choice matters.
+- **Entertainment and Colloquial** — low scores across the board;
+  customisation is the differentiator.
+- NLLB (open-source) sat in the 2nd tier of commercial systems
+  overall; on par with top tier only for English→Spanish.
+
+**Headline cross-benchmark takeaway:** Between 2022 and 2025, the
+identity of "the best MT" shifted from a commercial NMT vendor
+(varied by language pair, per Intento) to a commercial LLM provider
+(Gemini / Claude / GPT). The shift is real and is reflected in the
+[[#Underlying technology stack|underlying-technology-stack section]]
+above. For procurement: don't shortlist a vendor on 2022 benchmark
+leadership — the leaderboard has reshuffled twice since.
+
+See [[mt-evaluation]] for the full methodology arc and the
+metric-bias warning.
 
 ## Capability matrix
 
@@ -382,7 +478,11 @@ Procurement-relevant dimensions still not addressed:
 
 - Independent benchmarks (academic or industry) comparing these
   engines on common test sets, especially for non-English-pair
-  language directions.
+  language directions. **Partially addressed** by WMT 2023–2025 and
+  Intento AMTA 2022; see [[mt-evaluation]] for the methodology and
+  the benchmark-leaders summary above. Gaps remain: WMT does not
+  cover most commercial NMT vendors (SYSTRAN, RWS Language Weaver,
+  Pangeanic, Tilde) directly because they don't submit.
 - For EU-data-residency-constrained clients: which engines have a
   documented EU-only processing path? (DeepL clearly; Azure / Vertex
   via regional deploys; AWS via region selection.)
@@ -402,3 +502,15 @@ Procurement-relevant dimensions still not addressed:
 - [(11) Why You Should Choose an On-prem Translation System for Corporate Translation](https://www.linkedin.com/pulse/why-you-should-choose-on-prem-translation-system-corporate-5vksc/) — Lingvanex blog; Lingvanex On-Premise as a candidate engine.
 - [Comparing Enterprise AI Translation Software in 2026_ Security, Deployment and Professional Accuracy, Comparing Enterprise AI Translation Software in 2026](https://www.chapsvision.com/blog/comparing-enterprise-ai-translation-software/) — ChapsVision blog reviewing 7 enterprise MT vendors (SYSTRAN, DeepL, RWS, LILT, Microsoft, Amazon, Google). Conflicted (ChapsVision publishes SYSTRAN) but provides verifiable deployment / certification structure; source of the "deployment as threshold criterion" framing.
 - [Automated translation](https://website-translation.language-tools.ec.europa.eu/automated-translation_en) — European Commission WEB-T integration directory; eTranslation, ModernMT, Pangeanic, Tilde positioning for EU-language workflows.
+- [ModernMT _ Welcome](https://www.modernmt.com/) — ModernMT homepage; document-level + adaptive positioning, ISO 27001, IDC MarketScape Leader 2023, 200 languages.
+- [ModernMT _ Translators](https://www.modernmt.com/translators) — ModernMT translator-facing page; CAT plugin coverage (Matecat / Trados / MemoQ).
+- [Translated merges with ModernMT](https://translated.com/modernmt-adaptive-machine-translation) — 2022 merger press release; ModernMT history, Translated/FBK/Edinburgh/TAUS founding consortium.
+- [Machine Translation in 2026_ An Honest Assessment of What's Good, What's Bad, and What's Next](https://translated.com/resources/machine-translation-2026-assessment) — Translated 2026 essay; positions Lara as the purpose-built translation LLM alongside ModernMT and TranslationOS workflow layer.
+- [MT Platform](https://custom.mt/custom-machine-translation-platform/) — Custom.MT product page; meta-platform / aggregator with Best-Engine tool, 30+ NMT/LLM models, Trados/MemoQ/Smartling/XTM/Smartcat connectors; tiered pricing including On-Prem option in the Compliance edition.
+- [On-Premise Machine Translation - Secure Solutions](https://custom.mt/on-premise-machine-translation-2/) — Custom.MT on-prem positioning page; closed-circuit deployment for defense/financial/government/legal, integration scoring & TCO methodology.
+- [Language Portal - Automated Solution for Your Clients](https://custom.mt/language-portal/) — Custom.MT Translation Portal; LSP-facing white-label MT portal with HITL, GenAI editing, drag-and-drop, OCR.
+- [2025 Language Technology Radar Report](https://www.nimdzi.com/language-technology-radar-report) — Nimdzi Language Technology Radar Report 2025 (660+ companies tracked); MT taxonomy (Generic Platform/API, Custom/Trainable, Niche/Legacy, MTQE); agentic MT framing; LSP proprietary platforms (Acolad Lia, Welocalize Opal, Lionbridge Aurora, Argos MosAIQ); LLM-vs-NMT transition observation.
+- [2022.amta-upg.4.Presentation](https://aclanthology.org/2022.amta-upg.4/) — Intento + e2f joint study at AMTA 2022 (companion PDF); 31 commercial MT engines × 9 industries × 11 language pairs; pre-LLM-era leadership snapshot. See [[mt-evaluation]] for methodology.
+- [2023.wmt-1.1](https://aclanthology.org/2023.wmt-1.1/) — WMT23 Findings paper (companion PDF); first WMT with multi-domain test sets; DA+SQM protocol; GPT-4 evaluated.
+- [2024.wmt-1.1](https://aclanthology.org/2024.wmt-1.1/) — WMT24 Findings paper (companion PDF); ESA protocol introduced; Claude 3.5 Sonnet / Unbabel-Tower70B / IOL-Research top performers; metric-bias finding (Tower70B trained on COMET-reward).
+- [2025.wmt-1.22](https://aclanthology.org/2025.wmt-1.22/) — WMT25 Findings paper (companion PDF); difficulty sampling; document-level test sets; Gemini 2.5 Pro overall leader; 60 systems × 30 language pairs.

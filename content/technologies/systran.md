@@ -2,7 +2,6 @@
 type: technology
 tags:
   - topic/translation
-  - mode/advise
   - mt
   - on-prem
   - regulated-industry
@@ -98,7 +97,7 @@ Rocher
 Vertical mix is finance / pharma / aerospace, consistent with the
 domain-model positioning.
 
-## Where it fits / doesn't (`mode/advise`)
+## Where it fits / doesn't (business advisory)
 
 - **Fits:** Regulated-industry clients (defense, finance, healthcare,
   legal, pharma) with on-prem or sovereign-deployment requirements;

@@ -2,8 +2,6 @@
 type: antipattern
 tags:
   - topic/translation
-  - mode/build
-  - mode/advise
   - vendor-evaluation
   - on-prem
   - data-sovereignty
@@ -15,7 +13,11 @@ sources:
   - Comparing Enterprise AI Translation Software in 2026_ Security, Deployment and Professional Accuracy, Comparing Enterprise AI Translation Software in 2026
   - 24 Top Translation Software (2025)
   - Best AI-Enabled Translation Services Reviews 2026
-last_updated: 2026-05-07
+  - The 2026 Nimdzi 100
+  - 2025 Language Technology Radar Report
+  - 2024.wmt-1.1
+  - 2025.wmt-1.22
+last_updated: 2026-05-23
 ---
 
 # Translation procurement antipatterns
@@ -56,7 +58,7 @@ language ("dedicated environment", "behind your perimeter"). It is
 still SaaS — vendor staff have access, network egress is the
 vendor's, the data is in the vendor's data center.
 
-Sometimes acceptable for `mode/advise` clients with softer
+Sometimes acceptable for business-advisory clients with softer
 sovereignty postures; **never acceptable** when the client says
 "air-gap" or "no external network egress." Identified in
 [[../patterns/on-prem-translation]] and visible in vendor pages —
@@ -236,13 +238,127 @@ that ship as a single binary or container with manual model updates,
 or vendor on-prem products with clear offline update bundles — not
 distributed-systems-shaped enterprise stacks.
 
+### IKEA-ization: skipping human review on AI-only output
+
+Buyers using raw AI / LLM output for content previously categorised
+"not for MT" — to slash budgets and reduce vendor dependency. The
+output looks fluent, the cost looks low, and the demo passes. In
+production, AI hallucinations and culturally-loaded mistranslations
+surface in high-stakes content; the buyer returns to the LSP for
+"expert-in-the-loop validation" after the damage is done
+([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)).
+
+Nimdzi's 2026 industry summary names this explicitly: "the
+*IKEA-ization* of localization, where buyers favor the speed of AI
+output to reduce dependency and slash budgets" — and frames the
+LSP's role as "defending the necessity of human oversight against
+the liability risks of AI hallucinations"
+([Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026)). The pattern
+is well-documented enough across the industry to flag at
+RFP-evaluation time: any RFP that prices on "100% AI output" with no
+human-review budget for regulated/high-stakes content is making this
+mistake.
+
+In business-advisory engagements: explicitly model human-review cost
+in the cost comparison, not just MT API spend. In IT-consultation /
+infrastructure work: ensure the build includes a quality-routing
+mechanism (QE → human review for low-confidence segments) rather
+than naive direct-to-publish from MT.
+
+### Procuring on automatic-metric leaderboards
+
+Vendor pitches and analyst reports routinely anchor on
+*automatic-metric* scores (COMET, BLEU, MetricX, CometKiwi) as the
+ranking signal. The metrics are cheap, deterministic, and look
+authoritative. They are also **systematically biased** — and the
+bias *increases* as systems hill-climb on the specific metric used
+for evaluation.
+
+Two concrete cases from the WMT shared task:
+
+- **WMT24** — Unbabel-Tower70B topped the automatic ranking on
+  AutoRank (a blend of MetricX-23-XL and CometKiwi-DA-XL) but did
+  not win human evaluation. Reason: Unbabel used COMET as its
+  reward signal during Minimum-Bayes-Risk decoding, so the model
+  hill-climbed on the same metric that ranks it
+  ([WMT24](https://aclanthology.org/2024.wmt-1.1/)).
+- **WMT25** — Shy-hunyuan-MT placed first in automatic ranking for
+  15 of 16 evaluated language pairs, but human evaluation
+  consistently ranked it lower than Gemini 2.5 Pro and other
+  systems
+  ([WMT25](https://aclanthology.org/2025.wmt-1.22/)).
+
+The WMT25 paper states the procurement implication directly:
+
+> "Automatic rankings did not always match human judgments:
+> systems that topped automated metrics such as Shy-hunyuan-MT
+> did not consistently win under human evaluation, pointing to
+> persistent metric bias in MBR and reinforcing that **human
+> evaluation should remain the final arbiter of translation
+> quality**." ([WMT25](https://aclanthology.org/2025.wmt-1.22/))
+
+For business-advisory engagements: a vendor leading on "COMET"
+or "MetricX" should be asked **explicitly** what their model was
+trained or fine-tuned on. A vendor that uses metric X as a reward
+signal will beat competitors on metric X without necessarily
+producing better translations. The correct procurement protocol
+is:
+
+1. Use automatic metrics to *select* a shortlist (5–10 systems).
+2. Run a **human evaluation** of the shortlist on
+   representative client content (~50–200 segments per domain,
+   per the WMT methodology).
+3. Treat human evaluation as authoritative for the final ranking.
+
+For IT-consultation work: same principle when picking among
+open-source / self-hosted engines. NLLB benchmarks well on COMET
+for many pairs, but human eval can show large quality gaps —
+especially on mainstream language pairs where commercial LLMs have
+improved fastest 2023–2025. See [[../comparisons/mt-evaluation]]
+for the full methodology arc.
+
+### Vibe-coding tooling around translation workflows
+
+Linguists or LSPs experimenting with AI-assisted coding to spin up
+translation dashboards, transcription wrappers, or alignment tools —
+without grounding in software-engineering fundamentals. The tools
+*look* correct (because GenAI produces working-looking code) but
+have hidden defects: improper data storage, missing input
+validation, broken integration boundaries
+([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report)).
+
+Nimdzi names this **"vibe coding"** and explicitly cautions linguists
+moving into langtech development:
+
+> "AI can produce code that looks correct but is subtly flawed.
+> Without proper debugging or testing, linguist-developers risk
+> deploying tools that break silently. Moreover, sensitive linguistic
+> data, client files, or user information may be improperly stored,
+> leading to privacy concerns."
+> ([Nimdzi Radar 2025](https://www.nimdzi.com/language-technology-radar-report))
+
+For procurement: if an LSP pitches a proprietary "AI-powered" tool
+built recently and not subjected to external code review, ask
+**explicitly** about data-storage architecture, integration boundary
+testing, and the development team's software-engineering background.
+A custom-built langtech tool from a non-engineering shop is a real
+audit risk — the LSP may not realise they're storing client TM data
+unencrypted in a "vibe-coded" dashboard.
+
+For IT-consultation: pair linguist-developers with engineers for
+anything touching client data. Reuse battle-tested platforms
+(Custom.MT, Intento, the established TMSes) rather than spinning up
+bespoke tooling.
+
 ## How to use this page
 
-In `mode/advise`: walk a client RFP / vendor list through this
-catalog before the shortlist is finalised. Each architectural trap
-is a hard-fail filter; each procurement trap is a process check.
+For business-advisory engagements: walk a client RFP / vendor list
+through this catalog before the shortlist is finalised. Each
+architectural trap is a hard-fail filter; each procurement trap is a
+process check.
 
-In `mode/build`: the architectural section is the more relevant one.
+For IT-consultation / infrastructure work: the architectural section
+is the more relevant one.
 "Solo operator buys enterprise infrastructure" is the failure mode
 that bites Build mode hardest.
 
@@ -255,3 +371,7 @@ that bites Build mode hardest.
 - [Comparing Enterprise AI Translation Software in 2026_ Security, Deployment and Professional Accuracy, Comparing Enterprise AI Translation Software in 2026](https://www.chapsvision.com/blog/comparing-enterprise-ai-translation-software/) — ChapsVision review; threshold-criterion framing and self-conflicted recommendation.
 - [24 Top Translation Software (2025)](https://redokun.com/blog/translation-software) — Redokun; vendor self-#1-ranking example.
 - [Best AI-Enabled Translation Services Reviews 2026](https://www.gartner.com/reviews/market/ai-enabled-translation-services) — Gartner category page; conflated-categories example.
+- [The 2026 Nimdzi 100](https://www.nimdzi.com/nimdzi-100-2026) — Nimdzi 100; "IKEA-ization of localization" framing for AI-only-output procurement antipattern.
+- [2025 Language Technology Radar Report](https://www.nimdzi.com/language-technology-radar-report) — Nimdzi Radar; "vibe coding" warning for linguist-built tooling around translation workflows.
+- [2024.wmt-1.1](https://aclanthology.org/2024.wmt-1.1/) — WMT24 Findings (companion PDF); Unbabel-Tower70B case study for the "metric-bias from training-on-reward" failure mode.
+- [2025.wmt-1.22](https://aclanthology.org/2025.wmt-1.22/) — WMT25 Findings (companion PDF); Shy-hunyuan-MT case study; explicit "human evaluation should remain the final arbiter" framing.
